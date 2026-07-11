@@ -1,0 +1,32 @@
+flowchart TD
+    subgraph INPUT["INPUT: User Preferences"]
+        A["User Prefs\ngenre, mood, target_energy, likes_acoustic"]
+        B["Song Catalog\ndata/songs.csv"]
+    end
+
+    subgraph PROCESS["PROCESS: The Loop - judge every song"]
+        C["For each song in catalog"]
+        C --> D["score_song(user_prefs, song)"]
+        D --> D1["Genre match -> +3 / 0"]
+        D --> D2["Mood match -> +3 / 0"]
+        D --> D3["Energy closeness -> +0 to 2 (gradient)"]
+        D --> D4["Acousticness fit -> +0 to 1.5 (gradient, direction-aware)"]
+        D --> D5["Valence tie-break -> +0 to 0.5 (gradient)"]
+        D1 --> SUM["Sum points into (score, reasons)"]
+        D2 --> SUM
+        D3 --> SUM
+        D4 --> SUM
+        D5 --> SUM
+        SUM --> C
+    end
+
+    subgraph OUTPUT["OUTPUT: The Ranking"]
+        F["Sort all (song, score, reasons) descending by score"]
+        G["Take Top K"]
+        H["Return: (song, score, explanation) list"]
+        F --> G --> H
+    end
+
+    A --> C
+    B --> C
+    SUM -.->|"all songs scored"| F
