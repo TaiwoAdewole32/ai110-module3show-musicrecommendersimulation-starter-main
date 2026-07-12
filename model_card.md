@@ -70,6 +70,8 @@ Prompts:
 - Cases where the system overfits to one preference  
 - Ways the scoring might unintentionally favor some users  
 
+One weakness I discovered is that the recommender relies on exact matches for genre and mood. During testing, small differences such as capitalization or extra spaces caused valid preferences to receive no matching points. The small and uneven dataset also gives users who prefer less-represented genres fewer strong recommendations. As a result, the system may favor popular genres and fail to recognize songs that still fit the user’s overall taste.
+
 ---
 
 ## 7. Evaluation  
@@ -84,6 +86,32 @@ Prompts:
 - Any simple tests or comparisons you ran  
 
 No need for numeric metrics unless you created some.
+
+I tested the recommender with several different user profiles. These included a Happy Pop listener, a listener who wanted sad pop with high energy, a listener who wanted intense rock that was also acoustic, and a Chill Lofi listener. I also tested edge cases, including energy values outside the normal 0.0 to 1.0 range, genres and moods that were not in the catalog, preferences with different capitalization or extra spaces, and a profile with a missing acoustic preference.
+
+Happy Pop Compared with High-Energy Sad Pop
+
+Happy Pop ranked Sunrise City first because it matched the genre, mood, and energy target. High-Energy Sad Pop ranked Gym Hero first because its pop genre and high energy outweighed its mood mismatch.
+
+Happy Pop Compared with Intense Acoustic Rock
+
+Happy Pop favored energetic pop songs such as Sunrise City and Gym Hero. Intense Acoustic Rock ranked Storm Runner first because it matched rock, intense, and high energy, even though it was not very acoustic.
+
+High-Energy Sad Pop Compared with Intense Acoustic Rock
+
+Gym Hero performed well for High-Energy Sad Pop because it matched pop and high energy. Storm Runner ranked higher for Intense Acoustic Rock because it matched both the requested genre and mood.
+
+Very High Energy Compared with Negative Energy
+
+Both invalid energy profiles still ranked Sunrise City first because its genre and mood matches remained strong. This showed that the system does not properly validate energy values outside the 0.0 to 1.0 range.
+
+Missing Categories Compared with Formatting Errors
+
+The opera and furious profile received weak matches because those categories were absent from the dataset. The formatting profile also lost matching points because capitalization and extra spaces prevented exact genre and mood matches.
+
+Chill Lofi Compared with Happy Pop
+
+Chill Lofi favored calmer songs such as Midnight Coding and Library Rain. Happy Pop preferred higher-energy tracks because its genre, mood, and energy targets were different.
 
 ---
 
