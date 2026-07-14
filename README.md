@@ -324,5 +324,7 @@ Write 1 to 2 paragraphs here about what you learned:
 - about how recommenders turn data into predictions
 - about where bias or unfairness could show up in systems like this
 
+The biggest learning moment during this project was that changes in values when ranking songs can drastically change the outcome of how a song is rank. The designing of a point-based system is something that has to be strategically done in order to accurately match a user's needs. Using AI was helpful when implementing the methods in recommender.py and in creation of normal and edge test profiles. I needed to doubl-check the AI all the time especially when it came to creating test profiles to make sure it was in the boundaries that I wanted. 
 
+I was surprised that simple algorithms could feel personalized by simply adding points for matching genre, mood, energy, and acoustic preferences. Even without machine learning, ranking songs by weighted scores made the recommendations change in ways that matched different user profiles. If I extended this project I would add more categories to make the song recommendation be more targeted and more songs to the catalog. I would also add more protections for ambiguous values and would suggest to the user that certain fields are required. 
 
