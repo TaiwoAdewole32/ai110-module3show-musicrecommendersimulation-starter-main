@@ -36,7 +36,7 @@ Prompts:
 
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
-The model gives every song a score. Songs receive points when their genre and mood match the user's preferences. Songs also receive points when their energy and  acousticness are close to what the user want. Valance is used as a small purposeful tie breaker. The system sorts the songs by score and returns the highest ranked options.
+The model gives every song a score. Songs receive points when their genre and mood match the user's preferences. Songs also receive points when their energy and  acousticness are close to what the user want. Valance is used as a small purposeful tie breaker. The system also awards points for popularity and release year (direction-aware, so a user can ask for mainstream/recent or niche/classic songs), for overlap between the user's favorite mood tags and a song's mood tags, and for exact matches on preferred listening activity (e.g. studying, partying) and song structure (e.g. verse-chorus, storytelling). The system sorts the songs by score and returns the highest ranked options.
 
 
 ---
@@ -52,7 +52,7 @@ Prompts:
 - Did you add or remove data  
 - Are there parts of musical taste missing in the dataset  
 
-The dataset contains 20 songs. The genres that are represented are pop, lofi, rock, afrobeats, hip-hop and trap.I added 10 more songs and also added more categories to rate songs such as speechiness and explicit. There are parts of musical taste missing in the dataset such as nostalgia and lyrical depth.
+The dataset contains 20 songs. The genres that are represented are pop, lofi, rock, afrobeats, hip-hop and trap.I added 10 more songs and also added more categories to rate songs such as speechiness and explicit. There are parts of musical taste missing in the dataset such as lyrical depth.
 ---
 
 ## 5. Strengths  

@@ -1,22 +1,21 @@
-id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,speechiness,explicit
-1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18,0.05,false
-2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71,0.04,false
-3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10,0.06,false
-4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86,0.03,false
-5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05,0.07,false
-6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92,0.03,false
-7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89,0.04,false
-8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22,0.04,false
-9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78,0.03,false
-10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35,0.05,false
-11,Unavailable,Davido,afrobeats,energetic,0.76,113,0.65,0.88,0.12,0.08,false
-12,Headlines,Drake,hip-hop,happy,0.8,82,0.42,0.73,0.12,0.25,true
-13,Starboy,The Weeknd,synthpop,moody,0.74,93,0.55,0.78,0.08,0.09,true
-14,Trust Issues,Drake,hip-hop,moody,0.45,70,0.28,0.50,0.20,0.30,true
-15,Necessari,Kizz Daniel,afrobeats,happy,0.65,103,0.80,0.70,0.20,0.10,false
-16,Yukon,Justin Bieber,pop,chill,0.52,140,0.65,0.60,0.35,0.06,false
-17,Beauty and a Beat,Justin Bieber,dance pop,happy,0.95,128,0.82,0.85,0.05,0.08,false
-18,Hope,XXXTentacion,alternative hip-hop,sad,0.57,73,0.20,0.60,0.55,0.15,true
-19,MMS,Asake,afrobeats,happy,0.50,102,0.68,0.47,0.10,0.12,false
-20,Boys Don't Cry,Lil Tecca,trap,happy,0.87,140,0.35,0.71,0.08,0.28,true
-
+id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness,speechiness,explicit,popularity,release_year,mood_tags,listening_activity,song_structure
+1,Sunrise City,Neon Echo,pop,happy,0.82,118,0.84,0.79,0.18,0.05,false,78,2023,uplifting;euphoric;energetic,partying,verse-chorus
+2,Midnight Coding,LoRoom,lofi,chill,0.42,78,0.56,0.62,0.71,0.04,false,55,2021,nostalgic;mellow;introspective,studying,instrumental build
+3,Storm Runner,Voltline,rock,intense,0.91,152,0.48,0.66,0.10,0.06,false,62,2019,aggressive;adrenaline;intense,exercising,progressive
+4,Library Rain,Paper Lanterns,lofi,chill,0.35,72,0.60,0.58,0.86,0.03,false,48,2020,nostalgic;calm;dreamy,studying,instrumental build
+5,Gym Hero,Max Pulse,pop,intense,0.93,132,0.77,0.88,0.05,0.07,false,70,2022,aggressive;pumped;euphoric,exercising,verse-chorus
+6,Spacewalk Thoughts,Orbit Bloom,ambient,chill,0.28,60,0.65,0.41,0.92,0.03,false,35,2018,dreamy;serene;introspective,sleeping,instrumental build
+7,Coffee Shop Stories,Slow Stereo,jazz,relaxed,0.37,90,0.71,0.54,0.89,0.04,false,44,2017,warm;nostalgic;soothing,relaxing,storytelling
+8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22,0.04,false,58,2020,nostalgic;moody;cinematic,driving,progressive
+9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78,0.03,false,50,2022,calm;steady;introspective,studying,instrumental build
+10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35,0.05,false,66,2023,euphoric;uplifting;carefree,partying,verse-chorus
+11,Unavailable,Davido,afrobeats,energetic,0.76,113,0.65,0.88,0.12,0.08,false,74,2022,euphoric;groovy;triumphant,partying,verse-chorus
+12,Headlines,Drake,hip-hop,happy,0.8,82,0.42,0.73,0.12,0.25,true,80,2011,confident;boastful;triumphant,driving,verse-chorus
+13,Starboy,The Weeknd,synthpop,moody,0.74,93,0.55,0.78,0.08,0.09,true,88,2016,moody;confident;sleek,driving,verse-chorus
+14,Trust Issues,Drake,hip-hop,moody,0.45,70,0.28,0.50,0.20,0.30,true,68,2011,brooding;moody;melancholic,relaxing,freestyle
+15,Necessari,Kizz Daniel,afrobeats,happy,0.65,103,0.80,0.70,0.20,0.10,false,60,2021,joyful;groovy;uplifting,partying,verse-chorus
+16,Yukon,Justin Bieber,pop,chill,0.52,140,0.65,0.60,0.35,0.06,false,63,2021,nostalgic;breezy;wistful,driving,verse-chorus
+17,Beauty and a Beat,Justin Bieber,dance pop,happy,0.95,128,0.82,0.85,0.05,0.08,false,82,2012,euphoric;flirty;energetic,partying,verse-chorus
+18,Hope,XXXTentacion,alternative hip-hop,sad,0.57,73,0.20,0.60,0.55,0.15,true,71,2018,melancholic;raw;introspective,relaxing,storytelling
+19,MMS,Asake,afrobeats,happy,0.50,102,0.68,0.47,0.10,0.12,false,65,2022,groovy;laid-back;joyful,relaxing,verse-chorus
+20,Boys Don't Cry,Lil Tecca,trap,happy,0.87,140,0.35,0.71,0.08,0.28,true,69,2019,defiant;moody;aggressive,partying,freestyle

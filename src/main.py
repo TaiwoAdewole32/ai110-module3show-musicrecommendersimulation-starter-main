@@ -61,6 +61,20 @@ ADVERSARIAL_PROFILES = [
         "Everything mismatched -- worst-case floor score",
         {"genre": "polka", "mood": "furious", "energy": 0.0, "likes_acoustic": True},
     ),
+    (
+        "Niche/classic listener -- exercises all 5 new attributes",
+        {
+            "genre": "lofi",
+            "mood": "chill",
+            "energy": 0.4,
+            "likes_acoustic": True,
+            "prefers_popular": False,
+            "prefers_recent": False,
+            "favorite_mood_tags": ["nostalgic", "introspective"],
+            "preferred_activity": "studying",
+            "preferred_structure": "instrumental build",
+        },
+    ),
 ]
 
 
