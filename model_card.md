@@ -36,7 +36,7 @@ Prompts:
 
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
-The model gives every song a score. Songs receive points when their genre and mood match the user's preferences. Songs also receive points when their energy and  acousticness are close to what the user want. Valance is used as a small purposeful tie breaker. The system also awards points for popularity and release year (direction-aware, so a user can ask for mainstream/recent or niche/classic songs), for overlap between the user's favorite mood tags and a song's mood tags, and for exact matches on preferred listening activity (e.g. studying, partying) and song structure (e.g. verse-chorus, storytelling). The system sorts the songs by score and returns the highest ranked options.
+The model gives every song a score. Songs receive points when their genre and mood match the user's preferences. Songs also receive points when their energy and  acousticness are close to what the user want. Valance is used as a small purposeful tie breaker. The system also awards points for popularity and release year (direction-aware, so a user can ask for mainstream/recent or niche/classic songs), for overlap between the user's favorite mood tags and a song's mood tags, and for exact matches on preferred listening activity (e.g. studying, partying) and song structure (e.g. verse-chorus, storytelling). The system sorts the songs by score and returns the highest ranked options.After the songs are scored, the model applies a diversity penalty before selecting the final recommendations. If an artist or genre is already represented in the top results, similar songs receive a small score reduction. This prevents one artist or genre from dominating the list and gives users a wider variety of recommendations while still prioritizing songs that match their preferences.
 
 
 ---
@@ -129,7 +129,7 @@ Prompts:
 - Improving diversity among the top results  
 - Handling more complex user tastes  
 
-I would clean user inputs by removing extra spaces and ignoring capitalization. I wwould add more songs from different genres, moods, cultures, and artists. I would also validate energy values and include features such as tempo, danceability, listening history, and user feedback.
+I would clean user inputs by removing extra spaces and ignoring capitalization. I would add more songs from different genres, moods, cultures, and artists. I would also validate energy values and include features such as tempo, danceability, listening history, and user feedback.
 ---
 
 ## 9. Personal Reflection  

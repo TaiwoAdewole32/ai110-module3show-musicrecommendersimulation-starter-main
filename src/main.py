@@ -9,7 +9,15 @@ You will implement the functions in recommender.py:
 - recommend_songs
 """
 
+import textwrap
+
+from tabulate import tabulate
+
 from recommender import load_songs, recommend_songs
+
+TITLE_WRAP_WIDTH = 24
+ARTIST_WRAP_WIDTH = 18
+REASON_WRAP_WIDTH = 46
 
 # Adversarial / edge-case profiles for stress-testing score_song and
 # recommend_songs. Each targets a specific way the scoring logic could
@@ -78,6 +86,31 @@ ADVERSARIAL_PROFILES = [
 ]
 
 
+def format_recommendations_table(recommendations) -> str:
+    """Formats (song, score, explanation) tuples as a tabulate grid with one reason per line."""
+    rows = []
+    for rank, (song, score, explanation) in enumerate(recommendations, start=1):
+        reasons = explanation.split("; ")
+        wrapped_reasons = "\n".join(
+            textwrap.fill(reason, REASON_WRAP_WIDTH) for reason in reasons
+        )
+        rows.append(
+            [
+                rank,
+                textwrap.fill(song["title"], TITLE_WRAP_WIDTH),
+                textwrap.fill(song["artist"], ARTIST_WRAP_WIDTH),
+                f"{score:.2f}",
+                wrapped_reasons,
+            ]
+        )
+
+    return tabulate(
+        rows,
+        headers=["#", "Title", "Artist", "Score", "Reasons"],
+        tablefmt="grid",
+    )
+
+
 def main() -> None:
     songs = load_songs("data/songs.csv")
 
@@ -90,13 +123,8 @@ def main() -> None:
         recommendations = recommend_songs(user_prefs, songs, k=5)
 
         print("\nTop recommendations:\n")
-        for rec in recommendations:
-            # You decide the structure of each returned item.
-            # A common pattern is: (song, score, explanation)
-            song, score, explanation = rec
-            print(f"{song['title']} - Score: {score:.2f}")
-            print(f"Because: {explanation}")
-            print()
+        print(format_recommendations_table(recommendations))
+        print()
 
 
 if __name__ == "__main__":

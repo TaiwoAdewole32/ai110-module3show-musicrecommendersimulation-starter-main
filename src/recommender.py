@@ -135,13 +135,50 @@ def score_song(user_prefs: Dict, song: Dict, catalog_year_range: Optional[Tuple[
 
     return score, reasons
 
+ARTIST_DIVERSITY_PENALTY = 2.0
+GENRE_DIVERSITY_PENALTY = 1.0
+
 def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
-    """Scores every song in songs against user_prefs and returns the top k as (song, score, explanation) tuples, sorted highest score first."""
+    """Scores every song in songs against user_prefs and greedily picks the top k as (song, score, explanation) tuples, applying a diversity penalty so artists/genres already picked make later songs by the same artist/genre score lower."""
     years = [song["release_year"] for song in songs]
     catalog_year_range = (min(years), max(years)) if years else None
-    scored = sorted(
+    remaining = sorted(
         ((song, *score_song(user_prefs, song, catalog_year_range)) for song in songs),
         key=lambda item: item[1],
         reverse=True,
     )
-    return [(song, score, "; ".join(reasons)) for song, score, reasons in scored[:k]]
+
+    selected = []
+    seen_artists = set()
+    seen_genres = set()
+
+    while remaining and len(selected) < k:
+        best_index = None
+        best_adjusted_score = None
+        best_penalty_reasons = None
+
+        for i, (song, score, reasons) in enumerate(remaining):
+            adjusted_score = score
+            penalty_reasons = []
+            if song["artist"] in seen_artists:
+                adjusted_score -= ARTIST_DIVERSITY_PENALTY
+                penalty_reasons.append(
+                    f"diversity penalty: artist already recommended (-{ARTIST_DIVERSITY_PENALTY:.1f})"
+                )
+            if song["genre"] in seen_genres:
+                adjusted_score -= GENRE_DIVERSITY_PENALTY
+                penalty_reasons.append(
+                    f"diversity penalty: genre already recommended (-{GENRE_DIVERSITY_PENALTY:.1f})"
+                )
+
+            if best_adjusted_score is None or adjusted_score > best_adjusted_score:
+                best_index = i
+                best_adjusted_score = adjusted_score
+                best_penalty_reasons = penalty_reasons
+
+        song, _score, reasons = remaining.pop(best_index)
+        seen_artists.add(song["artist"])
+        seen_genres.add(song["genre"])
+        selected.append((song, best_adjusted_score, reasons + best_penalty_reasons))
+
+    return [(song, score, "; ".join(reasons)) for song, score, reasons in selected]
